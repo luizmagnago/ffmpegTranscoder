@@ -1,0 +1,4 @@
+I am using ffmpeg on an Ubuntu Linux machine.
+
+I need the command line or script to use with ffmpeg
+that will take a H265 RTSP stream from an NVR and output a H264 RTSP stream on the fly,
