@@ -20,9 +20,9 @@ if [ "$#" -ne 2 ]; then
 fi
 
 if [ "$#" -ne 2 ]; then
-    command="ffmpeg -rtsp_transport tcp -i $inRTSPAddress -vcodec libx264 -acodec copy -r "$fps" -f rtsp -rtsp_transport tcp $outRTSPAddress"
+    command="ffmpeg -c:v hevc -rtsp_transport tcp -i $inRTSPAddress -vcodec libx264 -acodec copy -r "$fps" -pix_fmt yuv420p -f rtsp -rtsp_transport tcp $outRTSPAddress"
 else
-    command="ffmpeg -rtsp_transport tcp -i $inRTSPAddress -vcodec libx264 -acodec copy -f rtsp -rtsp_transport tcp $outRTSPAddress"
+    command="ffmpeg -c:v hevc -rtsp_transport tcp -i $inRTSPAddress -vcodec libx264 -acodec copy -pix_fmt yuv420p -f rtsp -rtsp_transport tcp $outRTSPAddress"
 fi
 
 echo $command
