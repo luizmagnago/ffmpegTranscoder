@@ -20,9 +20,9 @@ if [ "$#" -ne 2 ]; then
 fi
 
 if [ "$#" -ne 2 ]; then
-    command="ffmpeg -i $inRTSPAddress -vcodec libx264 -acodec copy -r $fps -f rtsp -rtsp_transport tcp $outRTSPAddress"
+    command="ffmpeg -rtsp_transport tcp -i $inRTSPAddress -vcodec libx264 -acodec copy -r "$fps" -f rtsp -rtsp_transport tcp $outRTSPAddress"
 else
-    command="ffmpeg -i $inRTSPAddress -vcodec libx264 -acodec copy -f rtsp -rtsp_transport tcp $outRTSPAddress"
+    command="ffmpeg -rtsp_transport tcp -i $inRTSPAddress -vcodec libx264 -acodec copy -f rtsp -rtsp_transport tcp $outRTSPAddress"
 fi
 
 echo $command
@@ -31,4 +31,4 @@ $command
 
 # Examples:
 # ffmpeg -i rtsp://localhost:8554/live1 -vcodec libx264 -acodec copy -f rtsp -rtsp_transport tcp rtsp://localhost:8554/live2
-# ffmpeg -i rtsp://localhost:8554/live1 -vcodec libx264 -acodec copy -r 15 -f rtsp -rtsp_transport tcp rtsp://localhost:8554/live21
+# ffmpeg -rtsp_transport tcp -i rtsp://localhost:8554/live1 -vcodec libx264 -acodec copy -r 15 -f rtsp -rtsp_transport tcp rtsp://localhost:8554/live2

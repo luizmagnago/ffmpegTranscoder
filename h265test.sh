@@ -21,7 +21,7 @@ if [ "$#" -ne 2 ]; then
 fi
 
 if [ "$#" -ne 2 ]; then
-    command="ffmpeg -re -i $inFile -vcodec libx265 -acodec copy -r $fps -f rtsp -rtsp_transport tcp $outRTSPAddress"
+    command="ffmpeg -re -i $inFile -vcodec libx265 -acodec copy -r "$fps" -f rtsp -rtsp_transport tcp $outRTSPAddress"
 else
     command="ffmpeg -re -i $inFile -vcodec libx265 -acodec copy -f rtsp -rtsp_transport tcp $outRTSPAddress"
 fi
